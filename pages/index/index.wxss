@@ -19,3 +19,12 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.main_scroll{
+  height: 2000px;
+}
+
+.userImg{
+  width: 100%;
+  height: 200px;
+}

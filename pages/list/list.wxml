@@ -1,0 +1,47 @@
+<!--pages/list/list.wxml-->
+<!-- 轮播图开始 -->
+<swiper indicator-dots='{{ indicatorDots }}' autoplay='{{ autoplay }}' interval='{{ interval }}' duration='{{ duration }}' circular="{{ circular }}" class='swiper'>
+  <block wx:for="{{ bannerList }}" wx:key="{{ index }}">
+    <swiper-item>
+      <image src="https://ilovedreamother.com/lankit/public/static/assets{{ item.file_path }}" class='slide_image'></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 推荐开始 -->
+<view class='more'>
+  <text class='commend'>推荐</text>
+  <text>更多>></text>
+</view>
+<view class='cata'>
+  <view wx:for="{{ cataImgs }}" wx:key="{{ index }}" class='cata_item'>
+    <image src='https://ilovedreamother.com/lankit/public/static/assets{{ item.cata_img }}'></image>
+    <image src='../../imgs/back_dis.png' class='back_dis'></image>
+    <text class='discount'>{{ item.cata_name }}</text>
+  </view>
+</view>
+
+<image src='https://ilovedreamother.com/lankit/public/static/assets{{ staticImgs.good_img.file_path }}' class='static_goodImg' wx:if="{{ staticImgs.good_img.file_path }}"></image>
+
+<!-- 首页商品价格展示 -->
+<view class='goods'>
+  <view wx:for="{{ goodsImg }}" wx:key="{{ index }}" class='goods_item'>
+    <image src='https://ilovedreamother.com/lankit/public/static/assets{{ item.goods_img }}'></image>
+    <view>{{ item.title }}</view>
+    <view><text>￥{{ item.ori_price }}</text><text>￥{{ item.price }}</text></view>
+  </view>
+</view>
+
+<image src='https://ilovedreamother.com/lankit/public/static/assets{{ staticImgs.new_img.file_path }}' class='static_goodImg' wx:if="{{ staticImgs.new_img.file_path }}"></image>
+
+<view class='goods'>
+  <view wx:for="{{ newImgs }}" wx:key="{{ index }}" class='goods_item'>
+    <image src='https://ilovedreamother.com/lankit/public/static/assets{{ item.goods_img }}'></image>
+    <view>{{ item.title }}</view>
+    <view><text>￥{{ item.ori_price }}</text><text>￥{{ item.price }}</text></view>
+  </view>
+</view>
+
+
+
+
