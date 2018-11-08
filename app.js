@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    HTTP_BASE_URL: 'https://ilovedreamother.com/lankit/public/index.php?s=api'
   }
 })

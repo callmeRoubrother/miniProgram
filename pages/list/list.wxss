@@ -78,3 +78,6 @@
   font-size: 12px;
   color: #666;
 }
+.goods .goods_item .old_price{
+  text-decoration: line-through;
+}

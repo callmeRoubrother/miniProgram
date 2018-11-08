@@ -14,13 +14,14 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-const requestData = url => {
+const requestData = (url, obj) => {
   return new Promise((resolve, reject) => {
     wx.request({
       url: url,
+      data: obj,
       success(res) {
-        console.log(res)
-        resolve(res);
+        var result = res.data;
+        resolve(result);
       }
     })
   })

@@ -1,0 +1,30 @@
+<!-- 推荐数据渲染模板 -->
+<template name="cata_content">
+  <view class='cata'>
+    <view wx:for="{{ cataImgs }}" wx:key="{{ index }}" class='cata_item' bindtap='gotoKind' data-item='{{ item }}'>
+      <image src='https://ilovedreamother.com/lankit/public/static/assets{{ item.cata_img }}'></image>
+      <image src='../../imgs/back_dis.png' class='back_dis'></image>
+      <text class='discount'>{{ item.cata_name }}</text>
+    </view>
+</view>
+</template>
+<!-- 第一个图片间隔模板 -->
+<template name="static">
+  <image src='https://ilovedreamother.com/lankit/public/static/assets{{ staticImgs.good_img.file_path }}' class='static_goodImg' wx:if="{{ staticImgs.good_img.file_path }}"></image>
+</template>
+<!-- 首页商品列表模板 -->
+<template name="goods">
+  <view class='goods'>
+    <view wx:for="{{ data }}" wx:key="{{ index }}" class='goods_item'>
+      <image src='https://ilovedreamother.com/lankit/public/static/assets{{ item.goods_img }}'></image>
+      <view>{{ item.title }}</view>
+      <view><text class='old_price'>￥{{ item.ori_price }}</text><text>￥{{ item.price }}</text></view>
+    </view>
+  </view>
+</template>
+<!-- 第二个图片间隔模板 -->
+<template name="static_new">
+  <image src='https://ilovedreamother.com/lankit/public/static/assets{{ staticImgs.new_img.file_path }}' class='static_goodImg' wx:if="{{ staticImgs.new_img.file_path }}"></image>
+</template>
+
+

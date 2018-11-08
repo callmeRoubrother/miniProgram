@@ -1,4 +1,6 @@
 // pages/list/list.js
+const app = getApp();
+const utils = require('../../utils/util.js');
 Page({
 
   /**
@@ -12,7 +14,7 @@ Page({
     circular: true,
     inputShowed: false,
     inputVal: "",
-    url: 'https://ilovedreamother.com/lankit/public/index.php?s=api/home/homepage',
+    url: '/home/homepage',
     bannerList: [],
     goodsImg: [],
     newImgs: [],
@@ -23,15 +25,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const that = this;
-    const requestData = require('../../utils/util.js').requestData;
-    requestData(this.data.url).then((res) => {
-      that.setData({
-        bannerList: res.data.lunBo,
-        goodsImg: res.data.goodgoods,
-        newImgs: res.data.newgoods,
-        cataImgs: res.data.cata,
-        staticImgs: res.data.static
+    const requestUrl = app.globalData.HTTP_BASE_URL + this.data.url;
+    console.log(requestUrl);
+    utils.requestData(requestUrl).then((result) => {
+      this.setData({
+        bannerList: result.lunBo,
+        goodsImg: result.goodgoods,
+        newImgs: result.newgoods,
+        cataImgs: result.cata,
+        staticImgs: result.static
       })
     })
     wx.stopPullDownRefresh();
@@ -82,5 +84,16 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * 
+   */
+  gotoKind (e) {
+    var id = e.currentTarget.dataset.item.cata_id;
+    console.log(e.currentTarget.dataset.item.cata_id);
+    wx.switchTab({
+      url: "../kind/kind?type=0&page=0&cata_id=" + id
+    })
   }
 })

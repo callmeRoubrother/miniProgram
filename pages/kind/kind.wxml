@@ -1,0 +1,9 @@
+<view class='tab'>
+  <text>全部</text>
+  <text>人气</text>
+  <text>销量</text>
+  <text>价格</text>
+</view>
+
+<import src="./template.wxml"/>
+<template is="list" data="{{ listArr: listArr }}"></template>

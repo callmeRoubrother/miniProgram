@@ -13,35 +13,13 @@
   <text class='commend'>推荐</text>
   <text>更多>></text>
 </view>
-<view class='cata'>
-  <view wx:for="{{ cataImgs }}" wx:key="{{ index }}" class='cata_item'>
-    <image src='https://ilovedreamother.com/lankit/public/static/assets{{ item.cata_img }}'></image>
-    <image src='../../imgs/back_dis.png' class='back_dis'></image>
-    <text class='discount'>{{ item.cata_name }}</text>
-  </view>
-</view>
-
-<image src='https://ilovedreamother.com/lankit/public/static/assets{{ staticImgs.good_img.file_path }}' class='static_goodImg' wx:if="{{ staticImgs.good_img.file_path }}"></image>
-
-<!-- 首页商品价格展示 -->
-<view class='goods'>
-  <view wx:for="{{ goodsImg }}" wx:key="{{ index }}" class='goods_item'>
-    <image src='https://ilovedreamother.com/lankit/public/static/assets{{ item.goods_img }}'></image>
-    <view>{{ item.title }}</view>
-    <view><text>￥{{ item.ori_price }}</text><text>￥{{ item.price }}</text></view>
-  </view>
-</view>
-
-<image src='https://ilovedreamother.com/lankit/public/static/assets{{ staticImgs.new_img.file_path }}' class='static_goodImg' wx:if="{{ staticImgs.new_img.file_path }}"></image>
-
-<view class='goods'>
-  <view wx:for="{{ newImgs }}" wx:key="{{ index }}" class='goods_item'>
-    <image src='https://ilovedreamother.com/lankit/public/static/assets{{ item.goods_img }}'></image>
-    <view>{{ item.title }}</view>
-    <view><text>￥{{ item.ori_price }}</text><text>￥{{ item.price }}</text></view>
-  </view>
-</view>
-
-
-
-
+<import src="./template.wxml"/>
+<template is="cata_content" data="{{ cataImgs: cataImgs }}"></template>
+<!-- 图片间隔第一张 -->
+<template is="static" data="{{ staticImgs: staticImgs }}"></template>
+<!-- 首页商品价格展示1 -->
+<template is="goods" data="{{ data: goodsImg }}"></template>
+<!-- 图片间隔第二张 -->
+<template is="static_new" data="{{ staticImgs: staticImgs }}"></template>
+<!-- 首页商品价格展示2 -->
+<template is="goods" data="{{ data: newImgs }}"></template>

@@ -1,0 +1,9 @@
+<template name="list">
+  <view class='goods'>
+    <view wx:for="{{ listArr }}" wx:key="{{ index }}" class='goods_item'>
+      <image src='https://ilovedreamother.com/lankit/public/static/assets{{ item.goods_img }}'></image>
+      <view>{{ item.title }}</view>
+      <view><text class='old_price'>￥{{ item.ori_price }}</text><text>￥{{ item.price }}</text><text class='iconfont'>&#xe601;</text></view>
+    </view>
+  </view>
+</template>
